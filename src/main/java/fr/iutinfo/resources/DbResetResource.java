@@ -12,6 +12,7 @@ import fr.iutinfo.dao.InstructionsDao;
 import fr.iutinfo.dao.LevelDao;
 import fr.iutinfo.dao.LevelListDao;
 import fr.iutinfo.dao.LevelProgressDao;
+import fr.iutinfo.dao.SaveLevelDao;
 import fr.iutinfo.dao.UserDao;
 import fr.iutinfo.utils.Utils;
 
@@ -26,7 +27,7 @@ public class DbResetResource {
 	private static InstructionsDao instructionsDao = App.dbi.open(InstructionsDao.class);
 	private static LevelListDao levelListDao = App.dbi.open(LevelListDao.class);
 	private static LevelProgressDao levelProgressDAO = App.dbi.open(LevelProgressDao.class);
-
+	private static SaveLevelDao saveLevelDAO = App.dbi.open(SaveLevelDao.class);
 
 	
 	@GET
@@ -54,6 +55,7 @@ public class DbResetResource {
 		resetDbLevelList();
 		resetDbUsers();
 		resetDbLevelProgress();
+		resetDbSaveLevel();
 		
 		return "All Tables Reset";
 	}
@@ -328,4 +330,12 @@ public class DbResetResource {
         return "Table instructions Reset";
 	}
 
+	@GET
+	@Path("saveLevel")
+	public String resetDbSaveLevel() {
+		saveLevelDAO.dropSaveLevelTable();
+		saveLevelDAO.createSaveLevelTable();
+        return "Table save level Reset";
+	}
+	
 }

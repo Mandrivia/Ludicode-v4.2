@@ -14,6 +14,8 @@
     <script src="http://www.skulpt.org/static/env/editor.js" type="text/javascript"></script>
     <script src="http://www.skulpt.org/static/skulpt.min.js" type="text/javascript"></script>
     <script src="http://www.skulpt.org/static/skulpt-stdlib.js" type="text/javascript"></script>
+	<script type="text/javascript" src="scripts/page_controllers/all.js"></script>
+	<script type="text/javascript" src="scripts/page_controllers/python_.js"></script>
 </head>
 <body>
 
@@ -34,6 +36,7 @@ for c in ['red', 'green', 'yellow', 'blue']:
     t.left(90)
     </textarea>
     <button id="skulpt_run">Run</button>
+    <button onclick="submit_python()">Valider</button>
     <p>Output: (<a href="#" id="clearoutput">clear</a>)</p>
 
     <pre id="edoutput">
@@ -55,7 +58,6 @@ for c in ['red', 'green', 'yellow', 'blue']:
 $(function(){
   $(".CodeMirror:eq(1)").hide();
 });
-
 </script>
 
 

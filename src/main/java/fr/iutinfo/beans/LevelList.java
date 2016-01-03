@@ -9,7 +9,16 @@ public class LevelList {
 	private List<LevelListAssociation> levelsAssociation;
 	private List<Level> levels;
 	private int idAuthor;
+	private int idView;
 	
+	public int getIdView() {
+		return idView;
+	}
+
+	public void setIdView(int idView) {
+		this.idView = idView;
+	}
+
 	public String getName() {
 		return name;
 	}

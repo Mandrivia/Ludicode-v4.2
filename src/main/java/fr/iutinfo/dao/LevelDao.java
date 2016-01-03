@@ -16,7 +16,7 @@ import fr.iutinfo.beans.NotifLevelCount;
 
 public interface LevelDao {
 
-	@SqlUpdate("create table levels (id integer primary key autoincrement, name varchar(100), content text, instructions text, maxInstructions integer, authorId integer, creationDate DATETIME DEFAULT CURRENT_TIMESTAMP)")
+	@SqlUpdate("create table levels (id integer primary key autoincrement, name varchar(100), content text, instructions text, maxInstructions integer, authorId integer, creationDate DATETIME DEFAULT CURRENT_TIMESTAMP, idView INTEGER)")
 	void createLevelsTable();
 
 	@SqlUpdate("insert into levels (name, content, instructions, maxInstructions, authorId) "

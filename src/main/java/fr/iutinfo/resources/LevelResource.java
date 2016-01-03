@@ -33,7 +33,7 @@ public class LevelResource {
 	public LevelResource() {}
 
 	@GET
-	@Path("{id}")
+	@Path("{id}/{id_view}")
 	public Level getLevel(@PathParam("id") int id) {
 		Level level = levelDao.findById(id);
 		if(level == null)
@@ -44,7 +44,7 @@ public class LevelResource {
 	}
 
 	@GET
-	@Path("list/{idList}/level/{position}")
+	@Path("list/{idList}/level/{position}/view/{id_view}")
 	public Level getLevelOnList(@PathParam("idList") int idList, @PathParam("position") int position) {
 		Level level = levelDao.getLevelOnList(idList, position);
 		if(level == null)

@@ -237,6 +237,11 @@ public class DbResetResource {
 				6,					// max number of instructions
 				1);					// author id
 		
+		levelDao.insert("Python 1", // name
+				"print \"toto\"",
+				"",// instructions id list
+				0,					// max number of instructions
+				1);					// author id
 		/*levelDao.insert("Niveau 2", // name
 				"2 1 0 0 0 0," + 	//
 				"0 1 0 1 0 0," + 	// Level content
@@ -300,6 +305,8 @@ public class DbResetResource {
 		levelListDao.createList("Tutoriel", 1);
 		levelListDao.createList("Intermédiaire", 1);
 		levelListDao.createList("Expert", 1);
+		levelListDao.createList("Python", 1);
+		
 		levelListDao.insertAssociation(1, 1, 0);
 		levelListDao.insertAssociation(1, 2, 1);
 		levelListDao.insertAssociation(1, 3, 2);
@@ -313,6 +320,8 @@ public class DbResetResource {
 		levelListDao.insertAssociation(3, 11, 0);
 		levelListDao.insertAssociation(3, 12, 1);
 		levelListDao.insertAssociation(3, 13, 2);
+		
+		levelListDao.insertAssociation(4, 14, 0);
 		//levelListDao.insertAssociation(3, 14, 3);
 		//levelListDao.insertAssociation(3, 15, 4);
 		

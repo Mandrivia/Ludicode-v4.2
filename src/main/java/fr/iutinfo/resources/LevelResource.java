@@ -49,8 +49,8 @@ public class LevelResource {
 		Level level = levelDao.getLevelOnList(idList, position);
 		if(level == null)
 			throw new WebApplicationException(404);
-
-		level.setInstructionsList(instructionsDao.getAllId(Arrays.asList(level.getStructuredInstructions())));
+		if(!level.instructions().equals(""))
+			level.setInstructionsList(instructionsDao.getAllId(Arrays.asList(level.getStructuredInstructions())));
 		level.setLevelList(levelListDao.findById(idList));
 		level.getLevelList().setLevelsAssociation(levelListDao.getAssociationsOf(level.getLevelList().getId()));
 		return level;

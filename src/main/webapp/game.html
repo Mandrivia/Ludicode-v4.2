@@ -31,6 +31,19 @@
 
 <script type="text/javascript" src="scripts/page_controllers/game.js"></script>
 
+<!-- Skulpt + Code Mirror -->
+<link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/codemirror.css">
+<link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/solarized.css">
+<link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/main.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="http://www.skulpt.org/static/codemirrorepl.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/repl.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/python.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/env/editor.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/skulpt.min.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/skulpt-stdlib.js" type="text/javascript"></script>
+
+
 </head>
 
 <body>
@@ -96,64 +109,10 @@
 	</nav>
 
 
-	<div class="container-fluid main_panel" id="game_pane">
-		<div class="row">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<nav>
-						<ul id="levels_pagination" class="pagination">
-						</ul>
-					</nav>
-					<h4 id="level_title"></h4>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div id="grid-container" class="col-md-3">
-							<canvas width="200" height="200" id="grid">Votre navigateur ne supporte pas le HTML5 :(</canvas>
-                            <div id="toolbox" class="row panel panel-default">
-                                <div class="col-execute-button">
-                                    <button id="execute" type="button" class="btn btn-success">
-                                        <span class="glyphicon glyphicon-play"></span> Executer
-                                    </button>
-                                </div>
-                                <div class="col-md-6 col-speed">
-                                    <input id="speed" type="range" min="5" max="500" value="100" />
-                                </div>
-                                <div class="col-md-12" id="row-theme">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <h4>Theme :</h4>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <select id="theme_selector" class="form-control">
-                                            </select> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div id="remaining_instructions" class="col-md-12">
-                                        <h3>
-                                            Il vous reste <strong><span id="max_instruction">0</strong></b> instruction<span
-                                                id="max_instruction_s"></span>.
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
-
-						</div>
-
-						<div id="control-container" class="col-md-9">
-							<div id="blocklyDiv"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-
+	<div class="python">
 	</div>
-	<!-- /container game -->
+
+	
 
     <div id="message_box"></div>
 
@@ -218,6 +177,34 @@
 			<p>&copy; Dashin Games 2015</p>
 		</div>
 	</footer>
+	
+	<script type="text/javascript">
+		$(function(){
+
+			var getUrlParameter = function getUrlParameter(sParam) {
+			    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			        sURLVariables = sPageURL.split('&'),
+			        sParameterName,
+			        i;
+
+			    for (i = 0; i < sURLVariables.length; i++) {
+			        sParameterName = sURLVariables[i].split('=');
+
+			        if (sParameterName[0] === sParam) {
+			            return sParameterName[1] === undefined ? true : sParameterName[1];
+			        }
+			    }
+			};
+			
+			var view = getUrlParameter('view');
+			if(view == 1)
+				$('.python').load("/python.html");
+			else
+				$('.python').load("/labyrinthe.html");
+			$(".CodeMirror:eq(1)").hide();
+
+		});
+	</script>
 </body>
 </html>
 

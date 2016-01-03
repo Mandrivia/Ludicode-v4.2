@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript" src="libs/jquery.js"></script>
 
+
 <!-- Skulpt + Code Mirror -->
 
 <link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/codemirror.css">
@@ -111,6 +112,7 @@ for c in ['red', 'green', 'yellow', 'blue']:
     t.left(90)
     </textarea>
     <button id="skulpt_run">Run</button>
+    <button onclick="submit_python()">Valider</button>
     <p>Output: (<a href="#" id="clearoutput">clear</a>)</p>
 
     <pre id="edoutput">
@@ -123,10 +125,6 @@ for c in ['red', 'green', 'yellow', 'blue']:
     <textarea id="interactive" cols="85" rows="1"></textarea>
    
 </div>
-
-
-
-	
 
     <div id="message_box"></div>
 

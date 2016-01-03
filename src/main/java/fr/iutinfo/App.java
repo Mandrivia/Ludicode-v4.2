@@ -20,6 +20,7 @@ import fr.iutinfo.resources.LevelProgressRessource;
 import fr.iutinfo.resources.LevelResource;
 import fr.iutinfo.resources.MyServerEndpoint;
 import fr.iutinfo.resources.ProfileInfoResource;
+import fr.iutinfo.resources.SavePythonRessource;
 import fr.iutinfo.resources.UserResource;
 
 @ApplicationPath("/v1/")
@@ -37,6 +38,7 @@ public class App extends Application {
     	s.add(ProfileInfoResource.class);
     	s.add(LevelListResource.class);    	
     	s.add(LevelProgressRessource.class);
+    	s.add(SavePythonRessource.class);
     	s.add(AvatarResource.class);
     	s.add(MultiPartFeature.class);
     	return s;

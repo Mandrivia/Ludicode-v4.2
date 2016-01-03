@@ -302,10 +302,10 @@ public class DbResetResource {
 		levelListDao.createLevelListAssociationsTable();
 		levelListDao.createLevelListsTable();
         
-		levelListDao.createList("Tutoriel", 1);
-		levelListDao.createList("Intermédiaire", 1);
-		levelListDao.createList("Expert", 1);
-		levelListDao.createList("Python", 1);
+		levelListDao.createList("Tutoriel", 1, 0);
+		levelListDao.createList("Intermédiaire", 1, 0);
+		levelListDao.createList("Expert", 1, 0);
+		levelListDao.createList("Python", 1, 1);
 		
 		levelListDao.insertAssociation(1, 1, 0);
 		levelListDao.insertAssociation(1, 2, 1);

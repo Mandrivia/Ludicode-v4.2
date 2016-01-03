@@ -14,15 +14,15 @@ import fr.iutinfo.beans.LevelListAssociation;
 	
 public interface LevelListDao {
 	
-	@SqlUpdate("create table levelLists (id integer primary key autoincrement, name varchar(100), idAuthor integer)")
+	@SqlUpdate("create table levelLists (id integer primary key autoincrement, name varchar(100), idAuthor integer, idView integer)")
 	void createLevelListsTable();
 	
 	@SqlUpdate("create table levelListAssociations (idList integer, idLevel integer, position integer, CONSTRAINT pk_association PRIMARY KEY (idList, idLevel))")
 	void createLevelListAssociationsTable();
 	
-	@SqlUpdate("insert into levelLists (name, idAuthor) values (:name, :idAuthor)")
+	@SqlUpdate("insert into levelLists (name, idAuthor, idView) values (:name, :idAuthor, :idView)")
 	@GetGeneratedKeys
-	int createList(@Bind("name") String name, @Bind("idAuthor") int idAuthor);
+	int createList(@Bind("name") String name, @Bind("idAuthor") int idAuthor, @Bind("idView") int idView);
 	
 	@SqlUpdate("insert into levelListAssociations (idList, idLevel, position) values (:idList, :idLevel, :position)")
 	void insertAssociation(@Bind("idList") int idList, @Bind("idLevel") int idLevel, @Bind("position") int position);
@@ -43,7 +43,7 @@ public interface LevelListDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
 	List<LevelList> getAllLevelLists();
 	
-	@SqlQuery("SELECT count(*) as levelCount, id, idLevel, name, idAuthor from levelListAssociations INNER JOIN levelLists WHERE id=idList GROUP BY idList;")
+	@SqlQuery("SELECT count(*) as levelCount, id, idLevel, name, idAuthor, idView from levelListAssociations INNER JOIN levelLists WHERE id=idList GROUP BY idList;")
     @RegisterMapperFactory(BeanMapperFactory.class)
 	List<LevelList> getAllLevelListWithCount();
 	

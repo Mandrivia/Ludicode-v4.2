@@ -4,6 +4,7 @@ $(document).ready(function() {
 	
 	function loadLevelList(userNames) {
 		$.getJSON("v1/levelLists", function(data) {
+			console.log(data);
 			showLevels(data, userNames);
 		});
 	}

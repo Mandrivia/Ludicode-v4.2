@@ -37,15 +37,16 @@ public class SavePythonRessource {
 		/*LevelProgress tmp = dao.getLevel(idUser, idLevel);
 		if (tmp != null)
 			return new Feedback(false, "Niveau deja validé !");*/
-		dao.update(idUser, idLevel, code);
-		
+		//dao.update(idUser, idLevel, code);
+		//dao.insert(idUser, idLevel, code);
+
 		System.out.println(dao.exist(idUser, idLevel));
 		
-		/*if(dao.exist(idUser, idLevel) > 0)
-			dao.update(idUser, idLevel, request.getParameter("code"));
+		if(dao.exist(idUser, idLevel) > 0)
+			dao.update(idUser, idLevel, code);
 		else
-			dao.insert(idUser, idLevel, request.getParameter("code"));
-		*/
+			dao.insert(idUser, idLevel, code);
+		
 		return new Feedback(true, "OK");
 	}
 

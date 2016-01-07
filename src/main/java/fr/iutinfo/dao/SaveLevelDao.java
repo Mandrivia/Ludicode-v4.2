@@ -25,10 +25,14 @@ public interface SaveLevelDao {
 	@SqlUpdate("UPDATE SaveLevel SET content = :content WHERE idLevel = :idLevel AND idUser = :idUser")
 	void update(@Bind("idUser") int idUser, @Bind("idLevel") int idLevel, @Bind("content") String content);
 
-	@SqlUpdate("SELECT count(*) FROM SaveLevel WHERE idLevel = :idLevel AND idUser = :idUser")
+	@SqlQuery("SELECT count(*) FROM SaveLevel WHERE idLevel = :idLevel AND idUser = :idUser")
     @RegisterMapperFactory(BeanMapperFactory.class)
 	int exist(@Bind("idUser") int idUser, @Bind("idLevel") int idLevel);
 
+	@SqlQuery("SELECT * FROM SaveLevel WHERE idLevel = :idLevel AND idUser = :idUser")
+    @RegisterMapperFactory(BeanMapperFactory.class)
+	List<Level> selectExistingSave();
+	
 	
 	@SqlUpdate("drop table if exists SaveLevel")
 	void dropSaveLevelTable();

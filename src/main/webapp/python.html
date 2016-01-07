@@ -25,12 +25,14 @@
 <link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/solarized.css">
 <link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/main.css">
 <script src="http://www.skulpt.org/static/codemirrorepl.js" type="text/javascript"></script>
-<script src="http://www.skulpt.org/static/repl.js" type="text/javascript"></script>
+<!-- <script src="http://www.skulpt.org/static/repl.js" type="text/javascript"></script> -->
 <script src="http://www.skulpt.org/static/python.js" type="text/javascript"></script>
-<script src="http://www.skulpt.org/static/env/editor.js" type="text/javascript"></script>
 <script src="http://www.skulpt.org/static/skulpt.min.js" type="text/javascript"></script>
 <script src="http://www.skulpt.org/static/skulpt-stdlib.js" type="text/javascript"></script>
 
+
+<script type="text/javascript" src="scripts/page_controllers/all.js"></script>
+<script type="text/javascript" src="scripts/page_controllers/python_.js"></script>
 
 </head>
 
@@ -111,18 +113,16 @@ for c in ['red', 'green', 'yellow', 'blue']:
     t.forward(75)
     t.left(90)
     </textarea>
-    <button id="skulpt_run">Run</button>
-    <button onclick="submit_python()">Valider</button>
-    <p>Output: (<a href="#" id="clearoutput">clear</a>)</p>
+    <button id="skulpt_run2">Run</button>
+    <button onclick="submit_python()">Enregistrer</button>
 
     <pre id="edoutput">
     </pre>
+    <div id="mycanvas" height="600" width="600"
+            style="border-style: solid;height:400px;width:1000px;margin:auto;"></div>
 
-    <div id="mycanvas" height="400" width="400"
-            style="border-style: solid;"></div>
 
-
-    <textarea id="interactive" cols="85" rows="1"></textarea>
+    <!-- <textarea id="interactive" cols="85" rows="1"></textarea> -->
    
 </div>
 
@@ -189,43 +189,7 @@ for c in ['red', 'green', 'yellow', 'blue']:
 			<p>&copy; Dashin Games 2015</p>
 		</div>
 	</footer>
-	
-	<script type="text/javascript">
-	
-	/*	var ajax = new XMLHttpRequest();
-		ajax.open("GET", "python.html", false);
-		ajax.send();
-		console.log(document.getElementById("python"));
-		var id = document.getElementById("python")  
-		id = ajax.responseText;*/
-		$(function(){
-			$('.CodeMirror:eq(1)').hide();
-			/*var getUrlParameter = function getUrlParameter(sParam) {
-			    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-			        sURLVariables = sPageURL.split('&'),
-			        sParameterName,
-			        i;
 
-			    for (i = 0; i < sURLVariables.length; i++) {
-			        sParameterName = sURLVariables[i].split('=');
-
-			        if (sParameterName[0] === sParam) {
-			            return sParameterName[1] === undefined ? true : sParameterName[1];
-			        }
-			    }
-			};
-			
-			var view = getUrlParameter('view');
-			console.log("view : " + view);
-			if(view == 1){
-				$('#python').load("/python.html");
-			} else {
-				$('#python').load("/labyrinthe.html");
-		}
-			*/
-
-		});
-	</script>
 </body>
 </html>
 

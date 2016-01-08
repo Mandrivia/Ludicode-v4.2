@@ -240,10 +240,76 @@ public class DbResetResource {
 				1);					// author id
 		
 		levelDao.insert("Python 1", // name
-				"print \"toto\"",
-				"",// instructions id list
+				"import turtle\n\n"+
+
+				"t = turtle.Turtle()\n\n"+
+				
+				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
+				"    t.color(c)\n"+
+				"    t.forward(75)\n"+
+				"    t.left(90)\n"
+				    ,
+					"",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
+		
+		levelDao.insert("Python 1", // name
+				"import turtle\n\n"+
+
+				"t = turtle.Turtle()\n\n"+
+				
+				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
+				"    t.color(c)\n"+
+				"    t.forward(75)\n"+
+				"    t.left(90)\n"
+				    ,
+					"",// instructions id list
+				0,					// max number of instructions
+				1);					// author id
+		
+		levelDao.insert("Python 1", // name
+				"import turtle\n\n"+
+
+				"t = turtle.Turtle()\n\n"+
+				
+				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
+				"    t.color(c)\n"+
+				"    t.forward(75)\n"+
+				"    t.left(90)\n"
+				    ,
+					"",// instructions id list
+				0,					// max number of instructions
+				1);					// author id
+		
+		levelDao.insert("Python 1", // name
+				"import turtle\n\n"+
+
+				"t = turtle.Turtle()\n\n"+
+				
+				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
+				"    t.color(c)\n"+
+				"    t.forward(75)\n"+
+				"    t.left(90)\n"
+				    ,
+					"",// instructions id list
+				0,					// max number of instructions
+				1);					// author id
+		
+		levelDao.insert("Python 1", // name
+				"import turtle\n\n"+
+
+				"t = turtle.Turtle()\n\n"+
+				
+				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
+				"    t.color(c)\n"+
+				"    t.forward(75)\n"+
+				"    t.left(90)\n"
+				    ,
+					"",// instructions id list
+				0,					// max number of instructions
+				1);					// author id
+		
+	
 		/*levelDao.insert("Niveau 2", // name
 				"2 1 0 0 0 0," + 	//
 				"0 1 0 1 0 0," + 	// Level content
@@ -324,6 +390,11 @@ public class DbResetResource {
 		levelListDao.insertAssociation(3, 13, 2);
 		
 		levelListDao.insertAssociation(4, 14, 0);
+		levelListDao.insertAssociation(4, 15, 1);
+		levelListDao.insertAssociation(4, 16, 2);
+		levelListDao.insertAssociation(4, 17, 3);
+		levelListDao.insertAssociation(4, 18, 4);
+
 		//levelListDao.insertAssociation(3, 14, 3);
 		//levelListDao.insertAssociation(3, 15, 4);
 		

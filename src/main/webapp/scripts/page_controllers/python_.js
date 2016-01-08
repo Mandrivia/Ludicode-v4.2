@@ -1,10 +1,49 @@
-var levelId = 0; // TMP
 
+
+
+
+
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+
+var levelId = getUrlParameter('level');
+var idList = getUrlParameter('list');
 var date = new Date();
 var timer = 0;
 var editor = null;
 
-$(document).ready(function () {
+
+$.ajax({
+        type : 'GET',
+        contentType : 'application/json',
+        url : "v1/savePython/"+levelId+ "/" +Cookies["id"]+"/" + idList,
+        dataType:'text',
+        success : function(data, textStatus, jqXHR) {
+                $('#code').val(data);
+                setUp();
+        },
+        error : function(data, jqXHR, textStatus, errorThrown) {
+            console.log(data);
+            alert('get error: ' + textStatus);
+        }
+    });
+
+
+function setUp() {
     $('#mycanvas').show()
 
     var output = $('#edoutput');
@@ -33,6 +72,7 @@ $(document).ready(function () {
             var canvas_el = (Sk.TurtleGraphics || (Sk.TurtleGraphics = {}))
             canvas_el.target = 'mycanvas';
             canvas_el.width = "1000";
+            
             try {
                 Sk.misceval.asyncToPromise(function() {
                     return Sk.importMainWithBody("<stdin>",false,editor.getValue(),true);
@@ -105,8 +145,7 @@ $(document).ready(function () {
 
     editor.focus();
 
-
-});
+}
 
 function submit_python() {
 	// if(date.getTime() < timer+5000)
@@ -121,10 +160,12 @@ function submit_python() {
 	// });
 	// console.log(editor.getValue());
 
+
+
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
-		url : "v1/savePython/"+Cookies["id"]+"/"+levelId+"/"+encodeURIComponent(editor.getValue()),
+		url : "v1/savePython/"+Cookies["id"]+"/"+levelId+ "/" + idList + "/"+encodeURIComponent(editor.getValue()),
 		dataType : "json",
 		success : function(data, textStatus, jqXHR) {
 			if (data.success) {
@@ -137,5 +178,7 @@ function submit_python() {
 			alert('postUser error: ' + textStatus);
 		}
 	});
+
+
 
 }

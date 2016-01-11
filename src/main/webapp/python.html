@@ -34,6 +34,25 @@
 <script type="text/javascript" src="scripts/page_controllers/all.js"></script>
 <script type="text/javascript" src="scripts/page_controllers/python_.js"></script>
 
+<style type="text/css">
+
+#instruction {
+	background-color: #ffedcc;
+	border-collapse: collapse;
+}
+
+#instruction td, #instruction th {
+	padding: 3px;
+	border: 1px solid black;
+}
+
+#instruction th {
+	color: green;
+	font-weight: bold;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -105,6 +124,31 @@
 
     <textarea id="code" cols="85" rows="25">
     </textarea>
+    
+    <!-- Ici, tableau d'instructions -->
+    
+    <table id="instruction">
+    	<tr>
+    		<th>instructions</th><th>code</th><th>raccourcis</th><th>paramètre(s)</th>
+    	</tr>
+    	<tr>
+    		<td> Avancer </td> <td> t.forward(valeur) </td> <td> t.fd(valeur) </td> <td> valeur du mouvement </td>
+    	</tr>
+    	<tr>
+    		<td> Reculer </td> <td> t.backword(valeur) </td> <td> t.bk(valeur) </td> <td> valeur du mouvement </td>
+    	</tr>
+    	<tr>
+    		<td> Tourner à droite </td> <td> t.right(angle) </td> <td> t.rt(angle) </td> <td> angle de rotation </td>
+    	</tr>
+    	<tr>
+    		<td> Tourner à gauche </td> <td> t.left(angle) </td> <td> t.lt(angle) </td> <td> angle de rotation </td>
+    	</tr>
+    	<tr>
+    		<td> Couleur </td> <td> t.color(couleur) </td> <td>  </td> <td> couleur : une chaine de caratère de la couleur en anglais ('<span style="color: blue">blue</span>' pour <span style="color: blue">bleu</span>, '<span style="color: red">red</span>' pour <span style="color: red">rouge </span>... ) </td>
+    	</tr>
+    
+    </table>
+    
     <button id="skulpt_run2">Run</button>
     <button onclick="submit_python()">Enregistrer</button>
 

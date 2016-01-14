@@ -67,9 +67,7 @@ public class DbResetResource {
 
 		userDao.createUserTable();
 
-		userDao.insert("toto", Utils.hashMD5("toto"), "toto@toto.to");
-		userDao.insert("titi", Utils.hashMD5("titi"), "titi@titi.ti");
-		userDao.insert("tata", Utils.hashMD5("tata"), "tata@tata.ta");
+		userDao.insert("admin", Utils.hashMD5("admin"), "benjamin.danglot@univ-lille1.fr");
 
 		return "Table user Reset";
 	}
@@ -239,71 +237,46 @@ public class DbResetResource {
 				6,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 1 : Premiers pas", // name
 				"import turtle\n\n"+
 
-				"t = turtle.Turtle()\n\n"+
-				
-				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
-				"    t.color(c)\n"+
-				"    t.forward(75)\n"+
-				"    t.left(90)\n"
+				"t = turtle.Turtle()\n\n"
 				    ,
 					"",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 2 : Carré", // name
 				"import turtle\n\n"+
 
-				"t = turtle.Turtle()\n\n"+
-				
-				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
-				"    t.color(c)\n"+
-				"    t.forward(75)\n"+
-				"    t.left(90)\n"
+				"t = turtle.Turtle()\n\n"
 				    ,
 					"",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 3 : Triangle", // name
 				"import turtle\n\n"+
 
-				"t = turtle.Turtle()\n\n"+
-				
-				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
-				"    t.color(c)\n"+
-				"    t.forward(75)\n"+
-				"    t.left(90)\n"
+				"t = turtle.Turtle()\n\n"
 				    ,
 					"",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 4 : Cercle", // name
 				"import turtle\n\n"+
 
-				"t = turtle.Turtle()\n\n"+
-				
-				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
-				"    t.color(c)\n"+
-				"    t.forward(75)\n"+
-				"    t.left(90)\n"
+				"t = turtle.Turtle()\n\n"
 				    ,
 					"",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 5 : Forme plus complexe", // name
 				"import turtle\n\n"+
 
-				"t = turtle.Turtle()\n\n"+
-				
-				"for c in ['red', 'green', 'yellow', 'blue']:\n"+
-				"    t.color(c)\n"+
-				"    t.forward(75)\n"+
-				"    t.left(90)\n"
+				"t = turtle.Turtle()\n\n"
 				    ,
 					"",// instructions id list
 				0,					// max number of instructions

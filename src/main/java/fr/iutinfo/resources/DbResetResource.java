@@ -237,7 +237,7 @@ public class DbResetResource {
 				6,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 1 : Premiers pas", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"
@@ -246,7 +246,7 @@ public class DbResetResource {
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 2 : Carré", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"
@@ -255,7 +255,7 @@ public class DbResetResource {
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 3 : Triangle", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"
@@ -264,7 +264,7 @@ public class DbResetResource {
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 4 : Cercle", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"
@@ -273,7 +273,7 @@ public class DbResetResource {
 				0,					// max number of instructions
 				1);					// author id
 		
-		levelDao.insert("Python 1", // name
+		levelDao.insert("Python 5 : Forme plus complexe", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"

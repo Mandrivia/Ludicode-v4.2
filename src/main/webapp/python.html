@@ -101,11 +101,7 @@
 					<div id="info_profil_navbar">
 						<!--<a id="user_icon" href="profile.html" class="menu_bar_element">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						</a> <a href="chat.html"> <span class="glyphicon glyphicon-comment"
-							aria-hidden="true"> </span>
-						</a> <a id="notif_icon" href="#"> <span
-							class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-						</a> <a id="options_icon" class="menu_bar_element" href="options.html">
+						 <a id="options_icon" class="menu_bar_element" href="options.html">
 							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 						</a>--> <a id="logout_icon" href="#"> <span
 							class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -119,14 +115,25 @@
 
 
 	
-<div class="main">
+<div class="container-fluid main_panel" id="game_pane">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<nav>
+					<ul id="levels_pagination" class="pagination">
+					<li class="active"><a href="python.html?list=4&amp;level=0">1</a></li><li class=""><a href="python.html?list=4&amp;level=1">2</a></li><li class=""><a href="python.html?list=4&amp;level=2">3</a></li><li class=""><a href="python.html?list=4&amp;level=3">4</a></li><li class=""><a href="python.html?list=4&amp;level=4">5</a></li>
+					</ul>
+				</nav>
+				<h4 id="level_title">Python : </h4>
+			</div>
 
-
+    <div class="col-md-6">
     <textarea id="code" cols="85" rows="25">
     </textarea>
+    </div>
     
     <!-- Ici, tableau d'instructions -->
-    
+    <!-- <div class="col-md-6" -->
     <table id="instruction">
     	<tr>
     		<th>instructions</th><th>code</th><th>raccourcis</th><th>paramètre(s)</th>
@@ -152,7 +159,7 @@
     	</tr>
     
     </table>
-    
+    <!-- </div> -->
     <button id="skulpt_run2">Run</button>
     <button onclick="submit_python()">Enregistrer</button>
 
@@ -161,6 +168,9 @@
     <div id="mycanvas" height="600" width="600"
             style="border-style: solid;height:400px;width:1000px;margin:auto;"></div>
 
+            </div>
+            </div>
+            </div>
 
     <!-- <textarea id="interactive" cols="85" rows="1"></textarea> -->
    
@@ -201,18 +211,7 @@
 				</div>
 				<div class="modal-body">
 					
-					<h3>Votre avis nous intéresse !</h3>
-				  	<p>
-				  		Ce projet est encore en développement, 
-				  		nous avons besoin de vos suggestions pour 
-				  		continuer à l'améliorer. Veuillez nous accorder une
-				  		minute de votre temps pour remplir <a href="https://docs.google.com/forms/d/1hmrhXCK2fJ_nWNz3LHYgUXemEx199oRapPRhqhw1vaA/viewform">ce questionnaire.</a>
-				  		
-				  		<br /><br />
-				  		Merci d'avance, 
-				  		<br /><br />
-				  		Les développeurs de Ludicode.
-				  	</p>
+					<h3>Vous avez fini cette section !</h3>
 				</div>
 				<div class="modal-footer">
 					<button id="levelPageButton" type="button" class="btn btn-primary"

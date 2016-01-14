@@ -67,7 +67,7 @@ public class DbResetResource {
 
 		userDao.createUserTable();
 
-		userDao.insert("admin", Utils.hashMD5("admin"), "benjamin.danglot@univ-lille1.fr");
+		userDao.insert("admin", Utils.hashMD5("admin"), "benjamin.danglot@etudiant.univ-lille1.fr");
 
 		return "Table user Reset";
 	}

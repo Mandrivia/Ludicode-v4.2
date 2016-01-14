@@ -237,21 +237,30 @@ public class DbResetResource {
 				6,					// max number of instructions
 				1);					// author id
 		
+		levelDao.insert("Niveau 1zzzz", // name
+							"o", 			//
+				"1", 				// instructions id list
+				2,					// max number of instructions
+				1);					// author id
+		
+		
 		levelDao.insert("Python 1 : Premiers pas", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"
 				    ,
-					"",// instructions id list
+					"1,10,15,3,4,7",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
+		
+	
 		
 		levelDao.insert("Python 2 : Carré", // name
 				"import turtle\n\n"+
 
 				"t = turtle.Turtle()\n\n"
 				    ,
-					"",// instructions id list
+					"bijour tata",// instructions id list
 				0,					// max number of instructions
 				1);					// author id
 		

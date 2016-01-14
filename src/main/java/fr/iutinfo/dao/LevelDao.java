@@ -56,6 +56,10 @@ public interface LevelDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
 	Level getLevelOnList(@Bind("idList") int idList, @Bind("idLevel") int idLevel);
 	
+	@SqlQuery("select instructions from levels where id = (select idLevel from levelListAssociations where idList=:idList and position=:idLevel)")
+    @RegisterMapperFactory(BeanMapperFactory.class)
+	String getInstructionLevelOnList(@Bind("idList") int idList, @Bind("idLevel") int idLevel);
+	
 	@SqlQuery("select * from levels where id in (select idLevel from levelListAssociations where idList=:idList)")
     @RegisterMapperFactory(BeanMapperFactory.class)
 	List<Level> getLevelsOnList(@Bind("idList") int idList);

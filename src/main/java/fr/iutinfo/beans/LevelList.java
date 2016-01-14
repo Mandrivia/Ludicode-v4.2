@@ -67,4 +67,8 @@ public class LevelList {
 		this.levels = levels;
 	}
 	
+	public String toString() {
+		return this.name + ";" + this.id + ";" + this.idAuthor + ";" + this.idView + ";" + this.levelCount + ";" + this.levels + ";" + this.levelsAssociation;
+	}
+	
 }

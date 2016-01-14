@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 		if(currentUserProfile) $("#info_player").append("<b> Email :</b> " + data.user.email+"<br> <br>");
 		if(currentUserProfile) $("#info_player").append("<a href='options.html'> Modifier mon profil </a>");
-		else $("#info_player").append('<button id="add-friend" type="button" class="btn btn-primary">Ajouter en ami</button>');
+		//else $("#info_player").append('<button id="add-friend" type="button" class="btn btn-primary">Ajouter en ami</button>');
 
 		$("#add-friend").click(function() {
 			$.getJSON("/v1/friends/addFriend/" + urlParam("id") + "/" + Cookies["id"], function(data) {

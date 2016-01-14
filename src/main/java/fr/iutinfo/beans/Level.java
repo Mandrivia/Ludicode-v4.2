@@ -22,6 +22,10 @@ public class Level {
 	public Level(int id) {
 		this.id = id;
 		instructionsList = new ArrayList<Instruction>();
+		name = "";
+		content = "";
+		instructions = "";
+		
 	}
 
 	public String getContent() {
@@ -70,7 +74,14 @@ public class Level {
 	}
 
 	public Integer[][] getStructuredContent() {
-		return parseLevel(content);
+		try {
+			return parseLevel(content);
+		} catch(Exception e) {
+			
+			Integer[][] i = new Integer[1][1];
+			i[0][0] = new Integer(0);
+			return i;
+		}
 	}
 
 	public int getId() {
@@ -128,8 +139,20 @@ public class Level {
 		return instructions;
 	}
 	
+	private String serializeInstructions(String structuredInstructions) {
+		return structuredInstructions;
+	}
+	
 	public Integer[] getStructuredInstructions() {
-		return parseInstructions(instructions);
+		
+		try {
+			return parseInstructions(instructions);
+		} catch(Exception e) {
+			Integer[] i = new Integer[1];
+			i[0] = new Integer(0);
+			return i;
+		}
+
 	}
 
 	public void setStructuredInstructions(Integer[] structuredInstructions) {
@@ -159,5 +182,9 @@ public class Level {
 
 	public void setLevelList(LevelList levelList) {
 		this.levelList = levelList;
+	}
+	
+	public String toString() {
+		return 	id+";"+name+";"+authorId+";"+content+";"+instructions+";"+maxInstructions+";"+instructionsList+";"+levelList.toString();
 	}
 }

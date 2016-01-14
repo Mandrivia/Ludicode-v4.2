@@ -1,5 +1,6 @@
 package fr.iutinfo.resources;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,6 +56,25 @@ public class LevelResource {
 		level.getLevelList().setLevelsAssociation(levelListDao.getAssociationsOf(level.getLevelList().getId()));
 		return level;
 	}
+	
+	@GET
+	@Path("py/list/{idList}/level/{position}")
+	public Level getPyLevelOnList(@PathParam("idList") int idList, @PathParam("position") int position) {
+		Level level = levelDao.getLevelOnList(idList, position);
+		if(level == null)
+			throw new WebApplicationException(404);
+		if(!level.instructions().equals(""))
+			level.setInstructionsList(instructionsDao.getAllId(Arrays.asList(new Integer[]{new Integer(0), new Integer(1)})));
+		level.setLevelList(levelListDao.findById(idList));
+		level.getLevelList().setLevelsAssociation(levelListDao.getAssociationsOf(level.getLevelList().getId()));
+		return level;
+	}
+	
+//	@GET
+//	@Path("py/list/{idList}/level/{position}")
+//	public String getPyLevelOnList(@PathParam("idList") int idList, @PathParam("position") int position) {
+//		return  levelDao.getInstructionLevelOnList(idList, position);
+//	}
 
 	@GET
 	@Path("notifs/{cookie}")

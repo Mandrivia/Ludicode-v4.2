@@ -1,9 +1,4 @@
 
-
-
-
-
-
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -182,3 +177,83 @@ function submit_python() {
 
 
 }
+
+$(document).ready(function() {
+
+	/******************************
+	 **** REQUETES AJAX LEVELS ****
+	 ******************************/
+	
+	function createLevelPagination() {
+		var nav = $("#levels_pagination");
+		nav.html("");
+		for(var i = 0 ; i < levelList.levelsAssociation.length ; i++) {
+			var activeClass = (i == levelId ? "active" : "");
+			nav.append('<li class="' + activeClass + '">'
+						+'<a href="python.html?list=' + idList + '&level=' + i +'">' + (i+1) + '</a>'
+						+'</li>');
+		}
+	}
+	
+	function createLevelTitle(data) {
+		var listTitle = data.levelList == undefined ? "" : data.levelList.name + " : ";
+		$("#level_title").html(listTitle + data.name);
+	}
+
+	function handleLevel(data) {
+		window.levelData = data;
+		console.log(data);
+		levelList = data.levelList;
+		levelId = data.id;
+		
+		$("#max_instruction").html(data.maxInstructions);
+		createLevelTitle(data);
+		if(levelList != null)
+			createLevelPagination();
+	}
+	
+	
+	// charge le niveau d'id "levelId"
+	function loadLevel(levelId) {
+		$.getJSON("v1/levels/" + levelId, function(data) {
+			handleLevel(data);
+		});
+	}
+	
+	
+	// charge le niveau numéro "position" dans la liste d'id "idList"
+	function loadLevelInList(position, idList) {
+		$.getJSON("v1/levels/list/" + idList + "/level/" + position, function(data) {
+			handleLevel(data);
+		});
+	}
+	
+	
+	if( levelId != null) {
+		if(idList == null) {
+			loadLevel(currentLevel);
+		} else {
+			loadLevelInList(levelId, idList);
+		}
+	} else {
+		location.replace("levels.html")
+	}
+
+	/*$("#skip_level").click(function() {
+		if(nextLevelId > 0){
+			goToNextLevel();
+		} else {
+			// Afficher une fenêtre de félicitation ?
+		}
+	});*/
+	
+	$("#nextLevelButton").click(function() {
+		goToNextLevel();
+	});
+	
+	$("#levelPageButton").click(function() {
+		location.href = "levels.html";
+	});
+
+
+});

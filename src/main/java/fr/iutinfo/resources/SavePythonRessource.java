@@ -36,7 +36,7 @@ public class SavePythonRessource {
 		//dao.update(idUser, idLevel, code);
 		//dao.insert(idUser, idLevel, code);
 
-		System.out.println(dao.exist(idUser, idLevel, idList));
+		//System.out.println(dao.exist(idUser, idLevel, idList));
 		
 		if(dao.exist(idUser, idLevel, idList) > 0)
 			dao.update(idUser, idLevel, code, idList);
@@ -51,7 +51,7 @@ public class SavePythonRessource {
 	@Path("/{idLevel}/{cookie}/{idList}")
 	public String getSavedLevel(@PathParam("cookie") String cookie, @PathParam("idLevel") int idLevel, @PathParam("idList") int idList){
 		int idUser = Session.getUser(cookie).getId();
-		System.out.println(dao.selectExistingSave(idUser, idLevel, idList));
+		//System.out.println(dao.selectExistingSave(idUser, idLevel, idList));
 		List<String> res = dao.selectExistingSave(idUser, idLevel, idList);
 		if(res.isEmpty())
 			return levelDao.getLevelOnList(idList, idLevel).getContent();

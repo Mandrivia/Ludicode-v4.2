@@ -33,6 +33,8 @@ public interface SaveLevelDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
 	List<String> selectExistingSave(@Bind("idUser") int idUser, @Bind("idLevel") int idLevel, @Bind("idList") int idList);
 	
+	@SqlUpdate("DELETE FROM SaveLevel WHERE idLevel = :idLevel AND idUser = :idUser AND idList = :idList")
+	void delete(@Bind("idUser") int idUser, @Bind("idLevel") int idLevel, @Bind("idList") int idList);
 	
 	@SqlUpdate("drop table if exists SaveLevel")
 	void dropSaveLevelTable();

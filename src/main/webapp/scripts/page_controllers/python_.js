@@ -142,6 +142,23 @@ function setUp() {
 
 }
 
+function reset_python() {
+	$.ajax({
+        type : 'GET',
+        contentType : 'application/json',
+        url : "v1/resetPython/"+levelId+ "/" +Cookies["id"]+"/" + idList,
+        dataType:'text',
+        success : function(data, textStatus, jqXHR) {
+                //$('#code').val(data);
+                editor.setValue(data);
+        },
+        error : function(data, jqXHR, textStatus, errorThrown) {
+            console.log(data);
+            alert('get error: ' + textStatus);
+        }
+    });
+}
+
 function submit_python() {
 	// if(date.getTime() < timer+5000)
 	// 	return;

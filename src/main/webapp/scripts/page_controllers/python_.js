@@ -170,13 +170,20 @@ function submit_python() {
 			}
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			alert('postUser error: ' + textStatus);
+			console.log(textStatus);
+			console.log(errorThrown);
+			console.log(jqXHR);
 		}
 	});
-
-
-
 }
+
+
+window.onbeforeunload = closingCode;
+function closingCode(){
+	submit_python();
+	return null;
+}
+
 
 $(document).ready(function() {
 
@@ -189,8 +196,6 @@ $(document).ready(function() {
 		nav.html("");
 		for(var i = 0 ; i < levelList.levelsAssociation.length ; i++) {
 			var activeClass = (i == levelId ? "active" : "");
-			console.log(i);
-			console.log(levelId);
 			nav.append('<li class="' + activeClass + '">'
 						+'<a href="python.html?list=' + idList + '&level=' + i +'">' + (i+1) + '</a>'
 						+'</li>');

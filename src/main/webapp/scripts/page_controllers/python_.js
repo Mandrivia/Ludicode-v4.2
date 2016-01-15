@@ -189,6 +189,8 @@ $(document).ready(function() {
 		nav.html("");
 		for(var i = 0 ; i < levelList.levelsAssociation.length ; i++) {
 			var activeClass = (i == levelId ? "active" : "");
+			console.log(i);
+			console.log(levelId);
 			nav.append('<li class="' + activeClass + '">'
 						+'<a href="python.html?list=' + idList + '&level=' + i +'">' + (i+1) + '</a>'
 						+'</li>');
@@ -204,12 +206,13 @@ $(document).ready(function() {
 		window.levelData = data;
 		console.log(data);
 		levelList = data.levelList;
-		levelId = data.id;
 		
 		$("#max_instruction").html(data.maxInstructions);
 		createLevelTitle(data);
 		if(levelList != null)
 			createLevelPagination();
+		
+		$("#python-instruction").html(data.instructions);
 	}
 	
 	
@@ -223,7 +226,7 @@ $(document).ready(function() {
 	
 	// charge le niveau numéro "position" dans la liste d'id "idList"
 	function loadLevelInList(position, idList) {
-		$.getJSON("v1/levels/list/" + idList + "/level/" + position, function(data) {
+		$.getJSON("v1/levels/py/list/" + idList + "/level/" + position, function(data) {
 			handleLevel(data);
 		});
 	}

@@ -54,7 +54,11 @@ public class Level {
 		}
 		return array;
 	}
-
+	
+	public String getInstructions() {
+		return this.instructions;
+	}
+	
 	private String serializeContent(Integer[][] structuredContent) {
 		String content = "";
 		for(int i = 0 ; i < structuredContent.length ; i++) {

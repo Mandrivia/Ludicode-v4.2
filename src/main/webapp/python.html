@@ -21,21 +21,27 @@
 
 <!-- Skulpt + Code Mirror -->
 
-<link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/codemirror.css">
-<link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/solarized.css">
-<link rel="stylesheet" type="text/css" media="all" href="http://www.skulpt.org/static/main.css">
-<script src="http://www.skulpt.org/static/codemirrorepl.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" media="all"
+	href="http://www.skulpt.org/static/codemirror.css">
+<link rel="stylesheet" type="text/css" media="all"
+	href="http://www.skulpt.org/static/solarized.css">
+<link rel="stylesheet" type="text/css" media="all"
+	href="http://www.skulpt.org/static/main.css">
+<script src="http://www.skulpt.org/static/codemirrorepl.js"
+	type="text/javascript"></script>
 <!-- <script src="http://www.skulpt.org/static/repl.js" type="text/javascript"></script> -->
-<script src="http://www.skulpt.org/static/python.js" type="text/javascript"></script>
-<script src="http://www.skulpt.org/static/skulpt.min.js" type="text/javascript"></script>
-<script src="http://www.skulpt.org/static/skulpt-stdlib.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/python.js"
+	type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/skulpt.min.js"
+	type="text/javascript"></script>
+<script src="http://www.skulpt.org/static/skulpt-stdlib.js"
+	type="text/javascript"></script>
 
 
 <script type="text/javascript" src="scripts/page_controllers/all.js"></script>
 <script type="text/javascript" src="scripts/page_controllers/python_.js"></script>
 
 <style type="text/css">
-
 #instruction {
 	background-color: #ffedcc;
 	border-collapse: collapse;
@@ -50,7 +56,6 @@
 	color: green;
 	font-weight: bold;
 }
-
 </style>
 
 </head>
@@ -67,7 +72,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand menu_bar_element" id="home_bar" href="index.html">Ludicode</a>
+				<a class="navbar-brand menu_bar_element" id="home_bar"
+					href="index.html">Ludicode</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 
@@ -103,7 +109,8 @@
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						 <a id="options_icon" class="menu_bar_element" href="options.html">
 							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-						</a>--> <a id="logout_icon" href="#"> <span
+						</a>-->
+						<a id="logout_icon" href="#"> <span
 							class="glyphicon glyphicon-off" aria-hidden="true"></span>
 						</a>
 					</div>
@@ -114,69 +121,119 @@
 	</nav>
 
 
-	
-<div class="container-fluid main_panel" id="game_pane">
-	<div class="row">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<nav>
-					<ul id="levels_pagination" class="pagination">
-					<li class="active"><a href="python.html?list=4&amp;level=0">1</a></li><li class=""><a href="python.html?list=4&amp;level=1">2</a></li><li class=""><a href="python.html?list=4&amp;level=2">3</a></li><li class=""><a href="python.html?list=4&amp;level=3">4</a></li><li class=""><a href="python.html?list=4&amp;level=4">5</a></li>
-					</ul>
-				</nav>
-				<h4 id="level_title">Python : </h4>
+
+	<div class="container-fluid main_panel" id="game_pane">
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<nav>
+						<ul id="levels_pagination" class="pagination"></ul>
+					</nav>
+					<h4 id="level_title">Python :</h4>
+				</div>
+
+				<div class="col-md-12" id="python-instruction" style="padding:5px"></div>
+
+				<div class="col-md-6">
+
+					<textarea id="code" cols="85" rows="25">
+			  </textarea>
+				</div>
+				<div class="col-md-6">
+					<table id="instruction">
+						<tr>
+							<th>instructions</th>
+							<th>code</th>
+							<th>raccourcis</th>
+							<th>paramètre(s)</th>
+						</tr>
+						<tr>
+							<td>Avancer</td>
+							<td>t.forward(valeur)</td>
+							<td>t.fd(valeur)</td>
+							<td>valeur du mouvement</td>
+						</tr>
+						<tr>
+							<td>Reculer</td>
+							<td>t.backward(valeur)</td>
+							<td>t.bk(valeur)</td>
+							<td>valeur du mouvement</td>
+						</tr>
+						<tr>
+							<td>Tourner à droite</td>
+							<td>t.right(angle)</td>
+							<td>t.rt(angle)</td>
+							<td>angle de rotation</td>
+						</tr>
+						<tr>
+							<td>Tourner à gauche</td>
+							<td>t.left(angle)</td>
+							<td>t.lt(angle)</td>
+							<td>angle de rotation</td>
+						</tr>
+						<tr>
+							<td>Couleur</td>
+							<td>t.color(couleur)</td>
+							<td></td>
+							<td>couleur : une chaine de caratère de la couleur en
+								anglais ('<span style="color: blue">blue</span>' pour <span
+								style="color: blue">bleu</span>, '<span style="color: red">red</span>'
+								pour <span style="color: red">rouge </span>... )
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Epaisseur du peinceau</td>
+							<td>t.pensize(valeur)</td>
+							<td></td>
+							<td>Epaisseur du pinceau</td>
+						</tr>
+
+						<tr>
+							<td>Lever/Baisser le pinceau</td>
+							<td>t.penup()/t.pendown()</td>
+							<td>t.up()/t.down()</td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>Boucle Pour</td>
+							<td>for i in range(borne):<br /> [instructions indentés]
+							</td>
+							<td></td>
+							<td>i va prendre successivement sa valeur entre 0 et
+								borne(exclus) par pas de 1 (ex : for i in range(3) i prendra
+								successivement les valeurs 0,1,2)</td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="col-md-6" style="text-align: center">
+					<button id="skulpt_run2">Run</button>
+					<button onclick="submit_python()">Enregistrer</button>
+				</div>
+
+				<div class="col-md-6"></div>
+
+				<!-- Ici, tableau d'instructions -->
+				<!-- <div class="col-md-6" -->
+				<!-- </div> -->
+				<div class="col-md-12">
+					<pre id="edoutput"></pre>
+				</div>
+				<div  class="col-md-12">
+				<div  id="mycanvas" height="600" width="600"
+					style="border-style: solid; height: 400px; width: 1000px; margin: auto;"></div>
+				</div>
 			</div>
+		</div>
+	</div>
 
-    <div class="col-md-6">
-    <textarea id="code" cols="85" rows="25">
-    </textarea>
-    </div>
-    
-    <!-- Ici, tableau d'instructions -->
-    <!-- <div class="col-md-6" -->
-    <table id="instruction">
-    	<tr>
-    		<th>instructions</th><th>code</th><th>raccourcis</th><th>paramètre(s)</th>
-    	</tr>
-    	<tr>
-    		<td> Avancer </td> <td> t.forward(valeur) </td> <td> t.fd(valeur) </td> <td> valeur du mouvement </td>
-    	</tr>
-    	<tr>
-    		<td> Reculer </td> <td> t.backward(valeur) </td> <td> t.bk(valeur) </td> <td> valeur du mouvement </td>
-    	</tr>
-    	<tr>
-    		<td> Tourner à droite </td> <td> t.right(angle) </td> <td> t.rt(angle) </td> <td> angle de rotation </td>
-    	</tr>
-    	<tr>
-    		<td> Tourner à gauche </td> <td> t.left(angle) </td> <td> t.lt(angle) </td> <td> angle de rotation </td>
-    	</tr>
-    	<tr>
-    		<td> Couleur </td> <td> t.color(couleur) </td> <td>  </td> <td> couleur : une chaine de caratère de la couleur en anglais ('<span style="color: blue">blue</span>' pour <span style="color: blue">bleu</span>, '<span style="color: red">red</span>' pour <span style="color: red">rouge </span>... ) </td>
-    	</tr>
-    	
-    	<tr>
-    		<td> Boucle Pour </td> <td> for i in range(borne):<br/>	[instructions indentés]</td> <td></td> <td>i va prendre successivement sa valeur entre 0 et borne(exclus) par pas de 1 (ex : for i in range(3) i prendra successivement les valeurs 0,1,2)</td>
-    	</tr>
-    
-    </table>
-    <!-- </div> -->
-    <button id="skulpt_run2">Run</button>
-    <button onclick="submit_python()">Enregistrer</button>
+	<!-- <textarea id="interactive" cols="85" rows="1"></textarea> -->
 
-    <pre id="edoutput">
-    </pre>
-    <div id="mycanvas" height="600" width="600"
-            style="border-style: solid;height:400px;width:1000px;margin:auto;"></div>
+	</div>
 
-            </div>
-            </div>
-            </div>
-
-    <!-- <textarea id="interactive" cols="85" rows="1"></textarea> -->
-   
-</div>
-
-    <div id="message_box"></div>
+	<div id="message_box"></div>
 
 	<!-- Modal (popup) -->
 	<div class="modal fade" id="endLevelModal" tabindex="-1" role="dialog"
@@ -198,8 +255,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<!-- Modal (popup) -->
 	<div class="modal fade" id="congratsModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true"
@@ -210,7 +267,7 @@
 					<h4 class="modal-title" id="myModalLabel">Félicitations !</h4>
 				</div>
 				<div class="modal-body">
-					
+
 					<h3>Vous avez fini cette section !</h3>
 				</div>
 				<div class="modal-footer">

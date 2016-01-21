@@ -300,6 +300,27 @@ public class DbResetResource {
 				0, // max number of instructions
 				1);
 
+		levelDao.insert("Triforce", // name
+				"import turtle\n\ndef clone(t):\n\tnt = turtle.Turtle()\n\tnt.up()\n\tnt.speed(0)\n\tnt.setpos(t.pos())"
+					+ "\n\tnt.setheading(t.heading())\n\tnt.down()\n\t" + "return nt\n\n"
+					+ "t = turtle.Turtle()\n\n",
+				"<img src=\"images/triforce.png\" style=\"float:right\"/> Toujours en utilisant la méthode <b>clone(t)<b>, "
+						+ "dessinez trois triangles de façon à ce qu'ils forment une triforce.", // instructions id
+															// list
+				0, // max number of instructions
+				1);
+
+		levelDao.insert("Triforce 2", // name
+				"import turtle\n\ndef clone(t):\n\tnt = turtle.Turtle()\n\tnt.up()\n\tnt.speed(0)\n\tnt.setpos(t.pos())"
+					+ "\n\tnt.setheading(t.heading())\n\tnt.down()\n\t" + "return nt\n\n"
+					+ "t = turtle.Turtle()\n\n",
+				"<img src=\"images/triforcesDansTriforce.png\" style=\"float:right\"/>"
+						+ "Maintenant que vous avez réussi à faire une Triforce, "
+						+ "Faites en sorte d'avoir une triforce dans chaque partie de la première triforce.", // instructions id
+															// list
+				0, // max number of instructions
+				1);
+
 		/*
 		 * levelDao.insert("Niveau 2", // name "2 1 0 0 0 0," + //
 		 * "0 1 0 1 0 0," + // Level content "0 0 0 0 1 1," + "0 1 0 1 0 0," +
@@ -441,6 +462,8 @@ public class DbResetResource {
 
 		levelListDao.insertAssociation(5, 19, 0);
 		levelListDao.insertAssociation(5, 20, 1);
+		levelListDao.insertAssociation(5, 21, 2);
+		levelListDao.insertAssociation(5, 22, 3);
 
 		// levelListDao.insertAssociation(3, 14, 3);
 		// levelListDao.insertAssociation(3, 15, 4);

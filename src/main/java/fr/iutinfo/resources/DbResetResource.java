@@ -61,7 +61,7 @@ public class DbResetResource {
 
 		userDao.createUserTable();
 
-		userDao.insert("admin", Utils.hashMD5("admin"), "benjamin.danglot@etudiant.univ-lille1.fr");
+		userDao.insert("admin", Utils.hashMD5("23"), "benjamin.danglot@etudiant.univ-lille1.fr", "admin");
 
 		return "Table user Reset";
 	}
@@ -71,13 +71,6 @@ public class DbResetResource {
 	public String resetDbLevelProgress() {
 		levelProgressDAO.dropLevelProgessTable();
 		levelProgressDAO.createLevelProgressTable();
-
-		levelProgressDAO.insert(1, 1);
-		levelProgressDAO.insert(1, 2);
-		levelProgressDAO.insert(1, 3);
-
-		levelProgressDAO.insert(2, 1);
-		levelProgressDAO.insert(2, 4);
 
 		return "Table levelProgress Reset";
 	}
@@ -269,25 +262,37 @@ public class DbResetResource {
 																	// id list
 				0, // max number of instructions
 				1); // author id
-
+		
 		levelDao.insert("Le flocon 1", // name
+				"import turtle\n\ndef clone(t):\n\tnt = turtle.Turtle()\n\tnt.up()\n\tnt.speed(0)\n\tnt.setpos(t.pos())"
+				+ "\n\tnt.setheading(t.heading())\n\tnt.down()\n\t" + "return nt\n\nt = turtle.Turtle()",
+				
+		"<img src=\"images/branch_flocon.png\" style=\"float:right\"/>On se propose de créer une figure complexe. Pour cela nous allons utiliser plusieurs tortues. "
+				+ "Le but de la suite d'exercices est de cloner des tortues qui prendront des chemins différents pour dessiner des formes plus complexes."
+				+ "Afin de vous aider, nous fournissons la méthode <b>clone(t)</b>, qui clone la tortue passée en paramètre, "
+				+ "et retourne la nouvelle tortue.<br/>. Dans un premier temps, on fait avancer une tortue, qui créera trois clones, qui a leurs tours avanceront.", // instructions
+																					// id
+																					// list
+		0, // max number of instructions
+		1); // author id
+
+		levelDao.insert("Le flocon 2", // name
 				"import turtle\n\ndef clone(t):\n\tnt = turtle.Turtle()\n\tnt.up()\n\tnt.speed(0)\n\tnt.setpos(t.pos())"
 						+ "\n\tnt.setheading(t.heading())\n\tnt.down()\n\t" + "return nt\n\n"
 						+ "def recurse(depth, parent_turtle):\n\tif(depth >= 0):\n\t\tchild_turtle = clone(parent_turtle)\n\t\t"
 						+ "child_turtle.fd(50)\n\t\trecurse(depth-1,child_turtle)\n\n"
 						+ "t = turtle.Turtle()\nrecurse(4,t)",
-				"<img src=\"images/part_flocon.png\" style=\"float:right\"/>On se propose de crée une figure complexe. Pour cela nous allons utiliser plusieurs tortue. "
-						+ "Afin de vous aidez, nous fournissons la méthode <b>clone(t)</b>, qui clone la tortue passer en paremètre, "
-						+ "et le retourne.<br/>"
-						+ "On fournit également la base d'une fonction recursive, qui servira tout au long de la suite d'exercices.<br/>"
-						+ "L'objectif de cet exercice, et que chaque tortue parent crée deux enfants, qui iront dans des directions différentes. <br/>"
-						+ "Le but est de dessiner quelque chose de similaire a l'image.", // instructions
+						
+				"<img src=\"images/part_flocon.png\" style=\"float:right\"/> L'objectif final de ces exercices est de créer un flocon."
+				+ "On va donc commencer par dessiner l'une de ses branches, pour cela, on s'inspire de ce qu'on a fait juste avant.<br />"
+				+ "Chaque tortue se clonera en 3 nouvelles tortues, et on répète l'opération 3 fois. Pour vous aider, nous fournissons un début de fonction récursive"
+				+ " à modifier pour obtenir un dessin qui ressemble à celui de droite.", // instructions
 																							// id
 																							// list
 				0, // max number of instructions
 				1); // author id
 
-		levelDao.insert("Le flocon 2", // name
+		levelDao.insert("Le flocon 3", // name
 				"import turtle\n\ndef clone(t):\n\tnt = turtle.Turtle()\n\tnt.up()\n\tnt.speed(0)\n\tnt.setpos(t.pos())"
 						+ "\n\tnt.setheading(t.heading())\n\tnt.down()\n\t" + "return nt\n\n"
 						+ "def recurse(depth, parent_turtle):\n\tif(depth >= 0):\n\t\tchild_turtle = clone(parent_turtle)\n\t\t"
@@ -464,6 +469,7 @@ public class DbResetResource {
 		levelListDao.insertAssociation(5, 20, 1);
 		levelListDao.insertAssociation(5, 21, 2);
 		levelListDao.insertAssociation(5, 22, 3);
+		levelListDao.insertAssociation(5, 23, 4);
 
 		// levelListDao.insertAssociation(3, 14, 3);
 		// levelListDao.insertAssociation(3, 15, 4);

@@ -49,7 +49,7 @@ public class UserResource {
 				user.setPassword(hashedPassword);
 
 				// on insert l'utilisateur dans la bdd.
-				dao.insert(user.getName(), user.getPassword(), user.getEmail());
+				dao.insert(user.getName(), user.getPassword(), user.getEmail(), user.getClasse());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

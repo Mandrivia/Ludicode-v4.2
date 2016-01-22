@@ -8,8 +8,9 @@ $(document).ready(function() {
 		var name = $("#name_register").val();
 		var passwd = $("#password_register").val();
 		var email = $("#email_register").val();
-
-		registerUser(name, passwd, email);
+		var classe = $("input[name='classe']:checked").val();
+		
+		registerUser(name, passwd, email, classe);
 
 		$("#name_register").val("");
 		$("#password_register").val("");
@@ -18,7 +19,7 @@ $(document).ready(function() {
 
 });
 
-function registerUser(name, password, email) {
+function registerUser(name, password, email, classe) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -28,7 +29,8 @@ function registerUser(name, password, email) {
 			"id" : 0,
 			"name" : name,
 			"password" : password, 
-			"email" : email
+			"email" : email,
+			"classe" : classe
 		}),
 		success : function(data, textStatus, jqXHR) {
 			console.log(data);

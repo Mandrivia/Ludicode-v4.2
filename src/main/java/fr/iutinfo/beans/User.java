@@ -8,8 +8,17 @@ public class User {
 	private String password;
 	private String email;
 	private String cookie;
+	private String classe;
 	
 	
+	public String getClasse() {
+		return classe;
+	}
+
+	public void setClasse(String classe) {
+		this.classe = classe;
+	}
+
 	public User(int id, String name) {
 		this.id = id;
 		this.name = name;

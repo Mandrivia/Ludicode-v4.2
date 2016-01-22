@@ -309,7 +309,7 @@ public class DbResetResource {
 				"import turtle\n\ndef clone(t):\n\tnt = turtle.Turtle()\n\tnt.up()\n\tnt.speed(0)\n\tnt.setpos(t.pos())"
 					+ "\n\tnt.setheading(t.heading())\n\tnt.down()\n\t" + "return nt\n\n"
 					+ "t = turtle.Turtle()\n\n",
-				"<img src=\"images/triforce.png\" style=\"float:right\"/> Toujours en utilisant la méthode <b>clone(t)<b>, "
+				"<img src=\"images/triforce.png\" style=\"float:right\"/> Toujours en utilisant la méthode <b>clone(t)</b>, "
 						+ "dessinez trois triangles de façon à ce qu'ils forment une triforce.", // instructions id
 															// list
 				0, // max number of instructions

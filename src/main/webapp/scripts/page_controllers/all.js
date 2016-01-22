@@ -10,7 +10,10 @@ function isLoginRequiredPage() {
 				|| page == "/chat.html"
 					|| page == "listsEditor.html"
 						|| page == "test.html"
-							|| page == "instructionsSelection.html";
+							|| page == "/levels.html"
+								|| page == "/game.html"
+									|| page == "/python.html"
+										|| page == "instructionsSelection.html";
 }
 
 

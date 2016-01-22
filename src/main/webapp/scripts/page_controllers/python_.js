@@ -20,6 +20,7 @@ var idList = getUrlParameter('list');
 var date = new Date();
 var timer = 0;
 var editor = null;
+var code_editor;
 
 
 $.ajax({
@@ -33,7 +34,7 @@ $.ajax({
         },
         error : function(data, jqXHR, textStatus, errorThrown) {
             console.log(data);
-            alert('get error: ' + textStatus);
+          //  alert('get error: ' + textStatus);
         }
     });
 
@@ -101,7 +102,7 @@ function setUp() {
     }
 
 
-     editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+     editor = CodeMirror.fromTextArea(code_editor, {
         parserfile: ["parsepython.js"],
         autofocus: true,
         theme: "solarized dark",
@@ -154,7 +155,7 @@ function reset_python() {
         },
         error : function(data, jqXHR, textStatus, errorThrown) {
             console.log(data);
-            alert('get error: ' + textStatus);
+            //alert('get error: ' + textStatus);
         }
     });
 }
@@ -203,7 +204,9 @@ function closingCode(){
 
 
 $(document).ready(function() {
-
+	
+	code_editor = document.getElementById('code');
+	console.log(code_editor);
 	/******************************
 	 **** REQUETES AJAX LEVELS ****
 	 ******************************/
